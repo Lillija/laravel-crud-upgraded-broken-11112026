@@ -14,4 +14,16 @@ class Product extends Model
         'quantity',
         'description',
     ];
+
+    public function decreaseQuantity(int $amount): bool
+    {
+        if ($amount > $this->quantity) {
+            return false;
+        }
+
+        $this->quantity -= $amount;
+        $this->save();
+
+        return true;
+    }
 }

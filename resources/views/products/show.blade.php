@@ -23,4 +23,10 @@
         @method('DELETE')
         <input type="submit" value="Delete">
     </form>
+
+    <form action="{{ route('products.decrease', $product) }}" method="post">
+        @csrf
+        <input type="number" name="amount" value="1" min="1">
+        <input type="submit" value="Decrease quantity">
+    </form>
 </x-layout>
